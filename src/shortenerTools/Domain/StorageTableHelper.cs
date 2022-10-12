@@ -9,6 +9,8 @@ namespace Cloud5mins.domain
 
     public class StorageTableHelper
     {
+        Random rnd = new Random();
+
         private string StorageConnectionString { get; set; }
 
         public StorageTableHelper(){}
@@ -173,7 +175,7 @@ namespace Cloud5mins.domain
                 };                   
             }
             entity.Id++;
-
+            entity.PartitionKey = rnd.next(1,40).ToString();
             //Update
             TableOperation updOperation = TableOperation.InsertOrMerge(entity);
 
