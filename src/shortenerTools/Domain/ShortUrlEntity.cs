@@ -59,7 +59,7 @@ namespace Cloud5mins.domain
 
         private void Initialize(string longUrl, string endUrl, string title, Schedule[] schedules)
         {
-            PartitionKey = endUrl.First().ToString();
+            PartitionKey = endUrl.Substring(endUrl.Length - 1);
             RowKey = endUrl;
             Url = longUrl;
             Title = title;
@@ -71,7 +71,7 @@ namespace Cloud5mins.domain
         public static ShortUrlEntity GetEntity(string longUrl, string endUrl, string title, Schedule[] schedules){
             return new ShortUrlEntity
             {
-                PartitionKey = endUrl.First().ToString(),
+                PartitionKey = endUrl.Substring(endUrl.Length - 1),
                 RowKey = endUrl,
                 Url = longUrl,
                 Title = title,

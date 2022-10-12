@@ -174,8 +174,6 @@ namespace Cloud5mins.domain
                 };                   
             }
             entity.Id++;
-            Random rnd = new Random();
-            entity.PartitionKey = rnd.next(1,40).ToString();
             //Update
             TableOperation updOperation = TableOperation.InsertOrMerge(entity);
 
