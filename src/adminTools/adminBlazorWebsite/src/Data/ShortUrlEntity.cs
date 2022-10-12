@@ -25,7 +25,7 @@ namespace  adminBlazorWebsite.Data
         {
             return new ShortUrlEntity
             {
-                PartitionKey = endUrl.First().ToString(),
+                PartitionKey = endUrl.Substring(endUrl.Length - 1),
                 RowKey = endUrl,
                 Url = longUrl
             };

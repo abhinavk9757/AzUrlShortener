@@ -174,9 +174,6 @@ namespace Cloud5mins.domain
                 };                   
             }
             entity.Id++;
-            string a = DateTime.Now.ToString("ffffff");
-		    int part = int.Parse(a);
-            entity.PartitionKey = (part%40).ToString();
             //Update
             TableOperation updOperation = TableOperation.InsertOrMerge(entity);
 
